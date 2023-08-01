@@ -78,6 +78,9 @@ class _TasksState extends State<Tasks> {
                         color: Colors.black26,
                         width: 72,
                         height: 140,
+                        child: Image.network('https://logospng.org/wp-content/uploads/php.png', fit: BoxFit.fill,),
+                        
+                        //child: Image.asset('assets/php.png'),
                       ),
                       Container(
                           width: 200,
