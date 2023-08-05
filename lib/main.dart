@@ -1,6 +1,6 @@
 /**
- * PAREI NA AULA 3
- * 07. ListView e Padding
+ * PAREI NA AULA 4
+ * 02. Novo Widget: Image -> 5min:10seg
  */
 import 'package:flutter/material.dart';
 
@@ -26,13 +26,11 @@ class MyApp extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            Tasks("Aprendendo Flutter"),
-            Tasks("Estudar ITIL"),
-            Tasks("Estudar COBIT"),
-            Tasks("Estudar Figma"),
-            Tasks("Gravar aulas para o curso de Dev Front-end"),
-            Tasks("Criar um app"),
-            Tasks("Criar um app"),
+            Tasks("Aprendendo Flutter", ""),
+            Tasks("Aprendendo PHP", "../assets/php.png"),
+            Tasks("Estudar ITIL", ""),
+            Tasks("Estudar COBIT", ""),
+            Tasks("Estudar Figma", ""),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -46,7 +44,8 @@ class MyApp extends StatelessWidget {
 
 class Tasks extends StatefulWidget {
   final String nome;
-  const Tasks(this.nome, {super.key});
+  final String foto;
+  const Tasks(this.nome, this.foto, {super.key});
 
   @override
   State<Tasks> createState() => _TasksState();
@@ -78,8 +77,11 @@ class _TasksState extends State<Tasks> {
                         color: Colors.black26,
                         width: 72,
                         height: 140,
-                        child: Image.network('https://logospng.org/wp-content/uploads/php.png', fit: BoxFit.fill,),
-                        
+                        child: Image.network(
+                          widget.foto,
+                          fit: BoxFit.cover,
+                        ),
+
                         //child: Image.asset('assets/php.png'),
                       ),
                       Container(
@@ -103,7 +105,10 @@ class _TasksState extends State<Tasks> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Icon(Icons.arrow_drop_up),
-                                Text('UP', style: TextStyle(fontSize: 14),)
+                                Text(
+                                  'UP',
+                                  style: TextStyle(fontSize: 14),
+                                )
                               ],
                             )),
                       )
@@ -118,7 +123,7 @@ class _TasksState extends State<Tasks> {
                       child: Container(
                         child: LinearProgressIndicator(
                           color: Colors.white,
-                          value: nivel/10,
+                          value: nivel / 10,
                         ),
                         width: 200,
                       ),
